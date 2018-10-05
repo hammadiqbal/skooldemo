@@ -212,8 +212,8 @@ else
                                             <td align="center"><?php echo $fees->amount; ?></td>
                                           </tr>
                                       <?php
-									  $sum = $sum+$fees->amount;
-									  }
+                                      $sum = $sum+$fees->amount;
+                                    }
 									  ?>
 									  <tr>
                                         <td colspan="7" style=" font-weight:600" align="right"><?php echo Yii::t('app','Total Amount')?></td>

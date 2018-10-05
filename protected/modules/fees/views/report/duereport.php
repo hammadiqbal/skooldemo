@@ -126,7 +126,7 @@ if(isset($course_id) and $course_id!=NULL)
                                           <th align="center"><?php echo Yii::t('app','Admission No')?></th>
                                           <th align="center"><?php echo Yii::t('app','Category')?></th>
                                           <th align="center"><?php echo Yii::t('app','Due Date')?></th>
-                                          <th align="center"><?php echo Yii::t('app','Total Amount')?></th>
+                                          <th align="center"><?php echo Yii::t('app','Amount')?></th>
                                           <th align="center"><?php echo Yii::t('app','Due')?></th>
                                       </tr>
                                       <?php 
@@ -219,25 +219,45 @@ if(isset($course_id) and $course_id!=NULL)
 											echo number_format($amount_payable, 2);
 										?>
                                           </td>
+										  <?php
+	
+											$sum = $sum + $invoice_amount;
+											$sum_due = $sum_due + $amount_payable;
+											?>
                                         
 										
                                       </tr>
+									  
                                       <?php
 										}
-                                      }
+									  }
+									  
                       				  ?>
+
+										<tr>
+                                        <td colspan="5" style=" font-weight:600" align="right"><?php echo Yii::t('app','Total')?></td>
+                                      	<td align="center" style=" font-weight:600"><?php echo $sum; ?></td>
+										  <td align="center" style=" font-weight:600"><?php echo $sum_due; ?></td>
+									 </tr>
+										
+				
                                   </table>
 								
                                </div>
+							   
                                <?php
 								 }
+								
 								 ?>
                         </div>
                      <?php $this->endWidget(); ?>
              </div> 
              </div> 
         </td>
+		
     </tr>
+	
+
 </table>
 <script type="text/javascript">
 $('#search_btn').click(function(ev){
